@@ -1,0 +1,28 @@
+{
+	"Configuration" : {
+
+			"Port"	      : "4245",
+			"Size_X"	    : "30",
+			"Size_Y"	    : "30",
+				 : "1",
+			"Teams"			 : {
+
+					"1"					 : "tutu",
+					"2"					 : "tata",
+					"3"					 : "paul"
+			}
+
+	},
+
+	"Ressources" : {
+
+			"Food" 	     : "30 %",
+			"Linemate"    : "20 %",
+			"Deraumere"   : "40 %",
+			"Sibur"	     : "20 %",
+			"Thystame"    : "20 %",
+			"Mendiane"    : "20 %",
+			"Phiras"      : "20 %"
+	}
+
+}
