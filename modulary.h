@@ -1,12 +1,12 @@
 // ****************************************************************************
 //                                                                            *
-//                                 LIBMOD H                                   *
+//                                MODULARY H                                  *
 //                                                                            *
 // Created by Thomas Chafiol  -  thomaschaf@gmail.com  -  20  /  09  /  2014  *
 // *****************************************************************************
 
-#ifndef __LIBMOD_H__
-#define __LIBMOD_H__
+#ifndef __MODULARY_H__
+#define __MODULARY_H__
 
 // Simple objects includes
 #include "includes/modulaire.h"
@@ -27,4 +27,4 @@
 // Json includes
 #include "sources/json/json.h"
 
-#endif /* __LIBMOD_H__ */
+#endif /* __MODULARY_H__ */

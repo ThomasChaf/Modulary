@@ -4,7 +4,7 @@
 #include <fcntl.h>
 #include <dirent.h>
 
-#include "libmod.h"
+#include "modulary.h"
 
 void build_in()
 {
