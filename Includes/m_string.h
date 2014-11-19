@@ -20,7 +20,6 @@ typedef struct         s_string
   void                 *content;
   fct                  set;
   pfct                 split;
-  char                 (*at)();
   fct                  epur;
 }                      t_string;
 

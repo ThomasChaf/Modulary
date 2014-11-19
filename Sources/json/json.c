@@ -44,7 +44,7 @@ static void     json_encode(Json this)
   if (_this->stream == NULL)
     return ;
   __json_encode(this, _this->stream, this->head, 0);
-  _this->stream->cout(_this->stream, "\n");
+  _this->stream->write(_this->stream, "\n");
 }
 
 // ****************************************************************************
@@ -57,9 +57,9 @@ static int      __reload_stream(Parser this)
 {
   String        buffer = (String)(this->buffer);
 
-  if (buffer->at(buffer, this->pos) != 0)
+  if (get(buffer, this->pos) != 0)
     return (true);
-  if (this->stream->cin(this->stream, buffer) == false)
+  if (this->stream->read(this->stream, buffer) == false)
     return (false);
   buffer->epur(buffer, "\n \t", &json_hinib[2]);
   return (true);

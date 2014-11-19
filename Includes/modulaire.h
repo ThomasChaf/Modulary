@@ -17,7 +17,7 @@ typedef struct  s_module
   char          *type;
   unsigned int  (*len)();
   Objet         (*sum)();
-  void          (*str)();
+  char          *(*str)();
   Iter          (*iter)();
   int           (*push)();
   Objet         (*get)();

@@ -27,7 +27,7 @@
 //                                                                            *
 // ****************************************************************************
 
-static int      __cout(Stream this, char *fmt, ...)
+static int      __write(Stream this, char *fmt, ...)
 {
   va_list       ap;
 
@@ -39,7 +39,7 @@ static int      __cout(Stream this, char *fmt, ...)
   return (true);
 }
 
-static int      __cin(Stream this, Buffer buff)
+static int      __read(Stream this, Buffer buff)
 {
   int           ret;
   char          buffer[4096];
@@ -64,9 +64,10 @@ static int      __cin(Stream this, Buffer buff)
 //                                                                            *
 // ****************************************************************************
 
-static void       __str(Stream this)
+static char      *__str(Stream this)
 {
   printf("Stream from fd: %d\n", this->fd);
+  return (NULL);
 }
 
 // ****************************************************************************
@@ -95,8 +96,8 @@ t_module __Stream = { sizeof(t_stream), stream_ctor, stream_dtor,
 
 static void     __methods(Stream this)
 {
-  this->cout = (fct)__cout;
-  this->cin = __cin;
+  this->read = __read;
+  this->write = (fct)__write;
 }
 
 int             stream_ctor(Stream this, va_list *ap)

@@ -10,7 +10,7 @@
 
 unsigned int    len(Objet);
 Objet           sum(Objet, Objet);
-void            str(Objet);
+char            *str(Objet);
 Iter            next(Iter);
 Iter            iter(Objet);
 int             push(Objet, Objet);

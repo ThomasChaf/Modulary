@@ -36,21 +36,22 @@ static int      __reload_stream(Parser this)
 {
   String        buffer = (String)(this->buffer);
 
-  if (buffer->at(buffer, this->pos) != 0)
+  if (get(buffer, this->pos) != 0)
     return (true);
   if (this->stream == NULL
-    || this->stream->cin(this->stream, this->buffer) == false)
+    || this->stream->read(this->stream, this->buffer) == false)
     return (false);
   return (true);
 }
 
 static int      __peek_char(Parser this, char c)
 {
-  String        buffer = (String)this->buffer;
+  char          *buffer;
 
   if (this->reload_stream(this) == false)
     return (-1);
-  if (buffer->at(buffer, this->pos) != c)
+  buffer = get(this->buffer, this->pos);
+  if (buffer == NULL || *buffer != c)
     return (false);
   return (true);
 }
@@ -96,7 +97,7 @@ static int      __read_range(Parser this, char c1, char c2)
 
   if ((r = this->reload_stream(this)) != true)
     return (r);
-  c = buffer->at(buffer, this->pos);
+  c = *((char *)get(buffer, this->pos));
   if (c1 > c || c > c2) {
     return (false);
   }

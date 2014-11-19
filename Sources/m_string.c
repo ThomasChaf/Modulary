@@ -60,13 +60,6 @@ static Objet        __split(String this, char *sep, int hinib[][3])
   return (array);
 }
 
-static char         __at(String this, unsigned int index)
-{
-  if (index >= this->len)
-    return (0);
-  return (((char *)this->content)[index]);
-}
-
 // ****************************************************************************
 //                                                                            *
 //                            BUILT_IN METHODS                                *
@@ -80,9 +73,11 @@ static int          __push(String this, char *ptr)
   return (this->content != NULL ? true : false);
 }
 
-static Objet        __get(String this)
+static Objet        __get(String this, unsigned int index)
 {
-  return (this->content);
+  if (index >= this->len)
+    return (NULL);
+  return (&this->content[index]);
 }
 
 static unsigned int __len(String this)
@@ -137,9 +132,9 @@ static Objet        __sum(String s1, String s2)
   return (this);
 }
 
-static void         __str(String this)
+static char         *__str(String this)
 {
-  printf("%s\n", (char *)(this->content));
+  return (this->content);
 }
 
 // ****************************************************************************
@@ -169,7 +164,6 @@ t_module __String = { sizeof(t_string), string_ctor, string_dtor,
 static void         __methods(String this)
 {
   this->split       = __split;
-  this->at          = __at;
   this->set         = (fct)__set;
   this->epur        = __epur;
 }

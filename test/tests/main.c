@@ -177,11 +177,11 @@ void    string_test()
   printf("%d # test Array & String: get & split\n", (strcmp(get(array, 0), "maman") == 0));
   printf("%d # test Array & String: get & split\n", (strcmp(get(array, 3), "gateaux") == 0));
   printf("%d # test Array & String: get & split\n", (get(array, 4) == NULL));
-  printf("%d # test String: get\n", (strcmp(get(string2, 42), "1") == 0));
-  printf("%d # test String: at simple\n", (string2->at(string2, 0) == '1'));
-  printf("%d # test String: at excessif\n", (string2->at(string2, 42) == 0));
+  printf("%d # test String: get\n", (strcmp(str(string2), "1") == 0));
+  printf("%d # test String: at simple\n", (*(char *)get(string2, 0) == '1'));
+  printf("%d # test String: at excessif\n", get(string2, 42) == NULL);
   string2->set(string2, 0, '4');
-  printf("%d # test String: set simple\n", (string2->at(string2, 0) == '4'));
+  printf("%d # test String: set simple\n", (*(char *)get(string2, 0) == '4'));
   printf("%d # test String: set impossible\n", (string2->set(string2, -30, 'e') == false));
   delete(string);
   delete(string2);
@@ -197,10 +197,10 @@ void    stream_test()
   int     in = open("./input_file.txt", O_RDONLY);
 
   stream = new(__Stream, in);
-  stream->cin(stream, buff);
-  printf("%d # test Stream & String: cin & get\n", (strcmp(get(buff, 42), "premier") == 0));
+  stream->read(stream, buff);
+  printf("%d # test Stream & String: cin & get\n", (strcmp(str(buff), "premier") == 0));
   buff->bufferized(buff, "-second");
-  printf("%d # test Buffer: bufferized & get %s\n", (strcmp(get(buff, 42), "premier-second") == 0), (char *)get(buff, 42));
+  printf("%d # test Buffer: bufferized & get %s\n", (strcmp(str(buff), "premier-second") == 0), (char *)get(buff, 42));
   delete(stream);
   delete(buff);
 }

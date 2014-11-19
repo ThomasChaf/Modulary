@@ -201,7 +201,7 @@ static Objet          __sum(Liste l1, Liste l2)
   return (this);
 }
 
-static void           __to_string(Liste this)
+static char           *__str(Liste this)
 {
   t_liste_node        *tmp = this->head;
 
@@ -210,6 +210,7 @@ static void           __to_string(Liste this)
     printf("%s\n", (char *)(tmp->content));
     tmp = tmp->next;
   }
+  return (NULL);
 }
 
 // ****************************************************************************
@@ -224,7 +225,7 @@ t_module __Liste =  { sizeof(t_liste),  liste_ctor, liste_dtor,
                       "liste",
                       __len,
                       __sum,
-                      __to_string,
+                      __str,
                       __iter,
                       __push,
                       __get

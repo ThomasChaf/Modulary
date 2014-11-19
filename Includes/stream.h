@@ -11,8 +11,8 @@ typedef struct         s_stream
   t_module             module;
   int                  fd;
   int                  eof;
-  fct                  cout;
-  fct                  cin;
+  fct                  read;
+  fct                  write;
 }                      t_stream;
 
 typedef t_stream *      Stream;

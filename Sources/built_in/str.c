@@ -9,12 +9,12 @@
 
 #include "modulaire.h"
 
-void        str(Objet ptr)
+char        *str(Objet ptr)
 {
   t_module  *module;
 
   if (ptr == NULL)
-    return ;
+    return (NULL);
   module = (t_module *)ptr;
-  module->str(ptr);
+  return (module->str(ptr));
 }

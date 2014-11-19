@@ -108,7 +108,7 @@ static Objet        __sum(Array l1, Array l2)
   return (this);
 }
 
-static void         __str(Array this)
+static char         *__str(Array this)
 {
   int               i = 0;
 
@@ -116,6 +116,7 @@ static void         __str(Array this)
   {
     printf("%s\n", (char *)(this->content[i++]));
   }
+  return (NULL);
 }
 
 // ****************************************************************************
