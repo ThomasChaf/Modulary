@@ -27,6 +27,7 @@ SRC=	module.c \
 	$(SRC_DIR)/stream.c \
 	$(SRC_DIR)/m_string.c \
 	$(SRC_DIR)/buffer.c \
+	$(SRC_DIR)/logger.c \
 	$(BUILT_IN_DIR)/str.c \
 	$(BUILT_IN_DIR)/iter.c \
 	$(BUILT_IN_DIR)/next.c \

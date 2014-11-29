@@ -16,6 +16,7 @@
 #include "includes/stream.h"
 #include "includes/buffer.h"
 #include "includes/m_string.h"
+#include "includes/logger.h"
 
 // Utils includes
 #include "sources/built_in/built_in.h"

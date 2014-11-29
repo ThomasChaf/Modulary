@@ -12,6 +12,7 @@ typedef struct         s_stream
   int                  fd;
   int                  eof;
   fct                  read;
+  fct                  va_write;
   fct                  write;
 }                      t_stream;
 

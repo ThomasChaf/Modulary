@@ -281,6 +281,14 @@ void      json_test()
   delete(parser);
 }
 
+void     logger_test()
+{
+  LOG_INFO("1 # Je log une info simple\n");
+  LOG_INFO("1 # Je log une info avec un argument %s\n", "[argument]");
+  LOG_ERROR("1 # Je log une erreur simple\n");
+  LOG_ERROR("1 # Je log une erreur avec un argument %s\n", "[argument]");
+}
+
 int      main()
 {
   build_in();
@@ -291,5 +299,6 @@ int      main()
   stream_test();
   parser_test();
   json_test();
+  logger_test();
   return (0);
 }

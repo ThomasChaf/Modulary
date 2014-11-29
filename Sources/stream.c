@@ -27,15 +27,22 @@
 //                                                                            *
 // ****************************************************************************
 
+static int      __va_write(Stream this, char *fmt, va_list ap)
+{
+  int           res = vdprintf(this->fd, fmt, ap);
+
+  if (this->fd == 1)
+    fflush(stdout);
+  return (res);
+}
+
 static int      __write(Stream this, char *fmt, ...)
 {
   va_list       ap;
 
   va_start(ap, fmt);
-  vdprintf(this->fd, fmt, ap);
+  this->va_write(this, fmt, ap);
   va_end(ap);
-  if (this->fd == 1)
-    fflush(stdout);
   return (true);
 }
 
@@ -97,6 +104,7 @@ t_module __Stream = { sizeof(t_stream), stream_ctor, stream_dtor,
 static void     __methods(Stream this)
 {
   this->read = __read;
+  this->va_write = (fct)__va_write;
   this->write = (fct)__write;
 }
 
