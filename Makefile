@@ -9,6 +9,8 @@
 
 CC=	gcc
 
+INCLUDES_DIR=	ModularyIncludes
+
 SRC_DIR=	Sources
 
 BUILT_IN=	built_in
@@ -63,7 +65,7 @@ SRC=	module.c \
 
 OBJ=	$(SRC:.c=.o)
 
-CFLAGS=	-g -I./Includes -I. -I./Includes/$(M_FUNCTIONS) -I./Includes/$(BUILT_IN) -I./Includes/$(JSON) -I./Includes/$(PARSER)
+CFLAGS=	-g -I./$(INCLUDES_DIR) -I. -I./$(INCLUDES_DIR)/$(M_FUNCTIONS) -I./$(INCLUDES_DIR)/$(BUILT_IN) -I./$(INCLUDES_DIR)/$(JSON) -I./$(INCLUDES_DIR)/$(PARSER)
 
 NAME=   libmod.a
 

@@ -9,23 +9,23 @@
 #define __MODULARY_H__
 
 // Simple objects includes
-#include "includes/modulaire.h"
-#include "includes/iter.h"
-#include "includes/liste.h"
-#include "includes/array.h"
-#include "includes/stream.h"
-#include "includes/buffer.h"
-#include "includes/m_string.h"
-#include "includes/logger.h"
+#include "./ModularyIncludes/modulaire.h"
+#include "./ModularyIncludes/iter.h"
+#include "./ModularyIncludes/liste.h"
+#include "./ModularyIncludes/array.h"
+#include "./ModularyIncludes/stream.h"
+#include "./ModularyIncludes/buffer.h"
+#include "./ModularyIncludes/m_string.h"
+#include "./ModularyIncludes/logger.h"
 
 // Utils includes
-#include "includes/built_in/built_in.h"
-#include "includes/m_functions/m_functions.h"
+#include "./ModularyIncludes/built_in/built_in.h"
+#include "./ModularyIncludes/m_functions/m_functions.h"
 
 // Parser includes
-#include "includes/parser/parser.h"
+#include "./ModularyIncludes/parser/parser.h"
 
 // Json includes
-#include "includes/json/json.h"
+#include "./ModularyIncludes/json/json.h"
 
 #endif /* __MODULARY_H__ */
