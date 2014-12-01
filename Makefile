@@ -71,6 +71,20 @@ NAME=   libmod.a
 
 all:    $(NAME) test
 
+install:
+	@cp ./modulary.h /usr/include/
+	@cp -r ./$(INCLUDES_DIR) /usr/include/$(INCLUDES_DIR)
+	@cp libmod.a /usr/lib
+	@echo "Installation successful"
+	@echo "\t* libmod.a available in : /usr/lib/libmod.a"
+	@echo "\t* modulary.h available in : /usr/include/modulary.h"
+
+uninstall:
+	@rm -f /usr/lib/libmod.a
+	@rm -f /usr/include/modulary.h
+	@rm -rf /usr/include/$(INCLUDES_DIR)
+	@echo "Uninstall successful"
+
 $(NAME):	$(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
