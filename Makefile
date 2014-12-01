@@ -11,13 +11,21 @@ CC=	gcc
 
 SRC_DIR=	Sources
 
-BUILT_IN_DIR=	$(SRC_DIR)/built_in
+BUILT_IN=	built_in
 
-M_FUNCTIONS_DIR=	$(SRC_DIR)/m_functions
+BUILT_IN_DIR=	$(SRC_DIR)/$(BUILT_IN)
 
-JSON_DIR=	$(SRC_DIR)/json
+M_FUNCTIONS=	m_functions
 
-PARSER_DIR=	$(SRC_DIR)/parser
+M_FUNCTIONS_DIR=	$(SRC_DIR)/$(M_FUNCTIONS)
+
+JSON=		json
+
+JSON_DIR=	$(SRC_DIR)/$(JSON)
+
+PARSER=		parser
+
+PARSER_DIR=	$(SRC_DIR)/$(PARSER)
 
 TEST_DIR=	test
 
@@ -55,7 +63,7 @@ SRC=	module.c \
 
 OBJ=	$(SRC:.c=.o)
 
-CFLAGS=	-g -I./Includes -I. -I./$(M_FUNCTIONS_DIR) -I./$(BUILT_IN_DIR) -I./$(JSON_DIR) -I./$(PARSER_DIR)
+CFLAGS=	-g -I./Includes -I. -I./Includes/$(M_FUNCTIONS) -I./Includes/$(BUILT_IN) -I./Includes/$(JSON) -I./Includes/$(PARSER)
 
 NAME=   libmod.a
 

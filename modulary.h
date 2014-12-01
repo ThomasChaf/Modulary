@@ -19,13 +19,13 @@
 #include "includes/logger.h"
 
 // Utils includes
-#include "sources/built_in/built_in.h"
-#include "sources/m_functions/m_functions.h"
+#include "includes/built_in/built_in.h"
+#include "includes/m_functions/m_functions.h"
 
 // Parser includes
-#include "sources/parser/parser.h"
+#include "includes/parser/parser.h"
 
 // Json includes
-#include "sources/json/json.h"
+#include "includes/json/json.h"
 
 #endif /* __MODULARY_H__ */
