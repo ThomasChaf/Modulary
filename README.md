@@ -11,7 +11,7 @@ Modulary is a C library that help you to use some features of Object-Oriented Pr
     $ git clone https://github.com/ThomasChaf/Modulary.git
     $ cd Modulary
     $ make re
-    $ make install
+    $ sudo make install
 
 ## Usage
 
