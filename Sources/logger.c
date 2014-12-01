@@ -63,25 +63,18 @@ static t_module __Logger = { sizeof(t_logger), logger_ctor, logger_dtor,
 //                                                                            *
 // ****************************************************************************
 
-static Logger     __get_logger(int ctor)
+Logger            get_logger(int ctor, char *path)
 {
   static Logger   logger = NULL;
 
-  if (ctor && !logger)
-    logger = new(__Logger);
+  if ((ctor && logger == NULL) || path)
+    logger = new(__Logger, path);
   else if (!ctor)
+  {
     delete(logger);
+    logger = NULL;
+  }
   return (logger);
-}
-
-Logger            get_logger()
-{
-  return __get_logger(true);
-}
-
-void              delete_logger()
-{
-  __get_logger(false);
 }
 
 // ****************************************************************************
@@ -96,11 +89,11 @@ static void    __methods(Logger this)
   this->info = (fct)__info;
 }
 
-int            logger_ctor(Logger this)
+int            logger_ctor(Logger this, va_list *ap)
 {
-  int          fd;
+  char         *path = va_arg(*ap, char *);
+  int          fd = (path == NULL ? 1 : m_create(path));
 
-  fd = (DEFAULT_LOG? m_create(DEFAULT_LOG) : 1);
   if ((this->stream = new(__Stream, fd)) == NULL)
     return (false);
   __methods(this);

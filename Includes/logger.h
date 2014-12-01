@@ -13,8 +13,6 @@
 #include "modulaire.h"
 #include "utils.h"
 
-#define DEFAULT_LOG (NULL)
-
 typedef struct    s_logger
 {
   t_module        module;
@@ -25,14 +23,17 @@ typedef struct    s_logger
 
 typedef t_logger * Logger;
 
+Logger            __get_logger(int, char *);
 Logger            get_logger();
 void              delete_logger();
-int               logger_ctor(Logger);
+int               logger_ctor(Logger, va_list *);
 int               logger_dtor();
 
 extern char       *__LOGGER;
 
-#define LOG_INFO(fmt, ...) ((get_logger())->info(get_logger(), fmt, ## __VA_ARGS__))
-#define LOG_ERROR(fmt, ...) ((get_logger())->error(get_logger(), fmt, ## __VA_ARGS__))
+#define DEFAULT_LOG(path) (get_logger(true, path))
+
+#define LOG_INFO(fmt, ...) ((get_logger(true, NULL))->info(get_logger(true, NULL), fmt, ## __VA_ARGS__))
+#define LOG_ERROR(fmt, ...) ((get_logger(true, NULL))->error(get_logger(true, NULL), fmt, ## __VA_ARGS__))
 
 #endif /* __LOGGER_H__ */
