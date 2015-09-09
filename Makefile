@@ -9,9 +9,9 @@
 
 CC=	gcc
 
-INCLUDES_DIR=	ModularyIncludes
+INCLUDES_DIR=	includes
 
-SRC_DIR=	Sources
+SRC_DIR=	sources
 
 BUILT_IN=	built_in
 

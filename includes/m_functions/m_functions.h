@@ -31,6 +31,7 @@ char            *m_strcat(char *, char *);
 void            *m_realloc(void *, unsigned int);
 void            *m_malloc(unsigned int);
 int             m_epur(char *, char *, int [][3]);
+int             m_ropen(char *);
 int             m_open(char *, int);
 int             m_create(char *);
 int             m_strcmp(char *, char *);
