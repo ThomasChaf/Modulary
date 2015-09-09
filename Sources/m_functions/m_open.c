@@ -20,14 +20,12 @@ int   m_open(char *file, int flags)
   return (fd);
 }
 
+int  m_ropen(char *file)
+{
+    return m_open(file, O_RDONLY);
+}
+
 int   m_create(char *file)
 {
-  int fd = open(file, O_CREAT | O_TRUNC | O_WRONLY, 0644);
-
-  if (fd == -1)
-    {
-      perror("Error");
-      return (-1);
-    }
-  return (fd);
+  return m_open(file, O_CREAT | O_TRUNC | O_WRONLY, 0644);
 }
