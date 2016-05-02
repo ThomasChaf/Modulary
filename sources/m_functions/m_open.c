@@ -27,5 +27,5 @@ int  m_ropen(char *file)
 
 int   m_create(char *file)
 {
-  return m_open(file, O_CREAT | O_TRUNC | O_WRONLY, 0644);
+  return m_open(file, O_CREAT | O_TRUNC | O_WRONLY);
 }
